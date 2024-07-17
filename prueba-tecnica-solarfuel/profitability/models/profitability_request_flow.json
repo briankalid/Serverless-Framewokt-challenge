@@ -1,0 +1,23 @@
+{
+    "$schema" : "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "Nombre": {
+        "type": "string"
+      },
+      "Inversion_Inicial":{
+        "type": "number"
+      },
+      "Mantenimiento_Anual":{
+        "type": "number"
+      },
+      "Ingreso_Renta_Anual":{
+        "type": "number"
+      },
+      "Ciclos":{
+        "type": "integer"
+      }
+    },
+    "required": ["Nombre","Inversion_Inicial", "Mantenimiento_Anual", "Ingreso_Renta_Anual","Ciclos"]
+  }
+  

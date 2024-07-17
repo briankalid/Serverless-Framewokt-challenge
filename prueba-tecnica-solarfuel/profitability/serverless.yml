@@ -1,0 +1,37 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: briankalid
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: prueba-tecnica-solarfuel
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: prueba-tecnica-solarfuel
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: python3.10
+functions:
+#   hello:
+#     handler: handler.hello
+#     events:
+#       - httpApi:
+#           path: /s1
+#           method: get
+  profitability_flow:
+    handler: handler.profitability_flow
+    events:
+      - http:
+          path: /profitability/flow
+          method: post
+          request:
+            schemas:
+              application/json: ${file(models/profitability_request_flow.json)}
+  profitability_time:
+    handler: handler.profitability_time
+    events:
+      - http:
+          path: /profitability/time
+          method: post
+          request:
+            schemas:
+              application/json: ${file(models/profitability_request.json)}
